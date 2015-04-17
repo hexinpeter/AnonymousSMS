@@ -36,9 +36,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-# for heroku
-gem 'rails_12factor', group: :production
-
 # scheduling background jobs
 gem 'sidekiq'
 gem 'whenever', :require => false
@@ -51,6 +48,12 @@ gem 'rest-client'
 
 # secret key management
 gem 'figaro'
+
+# Heroku
+group :production do
+	gem 'rails_12factor'
+	gem 'puma'
+end
 
 
 group :development, :test do
