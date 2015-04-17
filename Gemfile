@@ -35,10 +35,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # for bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
 # for heroku
 gem 'rails_12factor', group: :production
 
+# scheduling background jobs
+gem 'sidekiq'
+gem 'whenever', :require => false
 
+# REST client
+gem 'rest-client'
+
+# secret key management
+gem 'figaro'
 
 
 group :development, :test do
