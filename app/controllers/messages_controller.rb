@@ -27,6 +27,9 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
+    token = Token.last.token
+
+    SendWorker.perform_async(token, message_params[:to], message_params[:content])
 
     respond_to do |format|
       if @message.save

@@ -43,6 +43,9 @@ gem 'rails_12factor', group: :production
 gem 'sidekiq'
 gem 'whenever', :require => false
 
+gem 'sinatra', require: false
+gem 'slim'
+
 # REST client
 gem 'rest-client'
 
