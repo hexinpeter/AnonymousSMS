@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @token = 'Token.generate'
-    @t2 = Token.last.token
+    @t2 = Token.get_token
     @messages = Message.all
   end
 
@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-    token = Token.last.token
+    token = Token.get_token
 
     SendWorker.perform_async(token, message_params[:to], message_params[:content])
 
