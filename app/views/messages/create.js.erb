@@ -1,0 +1,8 @@
+$('#send-result .modal-body #id').html("<%= @message.id %>");
+$('#send-result .modal-body #to').html("<%= @message.to %>");
+$('#send-result .modal-body #content').html("<%= @message.content %>");
+$('#send-result .modal-body #time').html("<%= @message.time.to_s %>");
+
+
+$('#send-result').modal('show');
+
