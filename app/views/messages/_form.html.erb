@@ -21,7 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :time %><br>
-    <%= f.datetime_select :time, default: Time.now %>
+    <%= f.datetime_select :time %>
+    <%= hidden_field_tag 'timezone_offset' %>
+    <!-- <br/>
+    <input id="datetime" type="text">
+    <input id="time_zone" style="display:none"> -->
   </div>
   <div class="actions">
     <%= f.submit %>

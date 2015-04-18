@@ -24,19 +24,15 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
-    token = Token.get_token
-    user_input_time = Time.new(message_params['time(1i)'].to_i,
-                               message_params['time(2i)'].to_i,
-                               message_params['time(3i)'].to_i,
-                               message_params['time(4i)'].to_i,
-                               message_params['time(5i)'].to_i)
-    sendin = user_input_time - Time.now > 0 ? (user_input_time - Time.now) : 0.minute
-
-    SendWorker.perform_in(0.minute, token, message_params[:to], message_params[:content])
+    @message = Message.new(to: message_params[:to],
+                           content: message_params[:content],
+                           time: param_utc_time)
 
     respond_to do |format|
       if @message.save
+        # send the message by adding it to Sidekiq queue
+        SendWorker.perform_in(schedule_time, token, message_params[:to], message_params[:content])
+
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
@@ -79,5 +75,28 @@ class MessagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
       params.require(:message).permit(:to, :content, :time)
+    end
+
+    # the timezone offset in seconds
+    def param_timezone_offset
+      params[:timezone_offset].to_i * -60
+    end
+
+    def param_utc_time
+      user_input_time = Time.new(message_params['time(1i)'].to_i,
+                               message_params['time(2i)'].to_i,
+                               message_params['time(3i)'].to_i,
+                               message_params['time(4i)'].to_i,
+                               message_params['time(5i)'].to_i,
+                               0,
+                               param_timezone_offset)
+    end
+
+    def token
+      Token.get_token
+    end
+
+    def schedule_time
+      param_utc_time - Time.now.utc > 0 ? (param_utc_time - Time.now.utc) : 0.minute
     end
 end

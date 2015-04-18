@@ -1,0 +1,19 @@
+$(document).ready(function() {
+	// $('#datetime').datetimepicker();
+	setTimeZone();
+	setCurrentTime();
+});
+
+function setTimeZone() {
+	var d = new Date;
+	$('#timezone_offset').val(d.getTimezoneOffset());
+}
+
+function setCurrentTime() {
+	var d = new Date;
+	$('#message_time_1i').val(d.getFullYear());
+	$('#message_time_2i').val(d.getMonth() + 1);
+	$('#message_time_3i').val(d.getDate());
+	$('#message_time_4i').val(d.getHours());
+	$('#message_time_5i').val(d.getMinutes());
+}

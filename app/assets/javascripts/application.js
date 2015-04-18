@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
+//= require jquery.datetimepicker
 //= require_tree .
