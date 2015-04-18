@@ -90,6 +90,7 @@ class MessagesController < ApplicationController
                                message_params['time(5i)'].to_i,
                                0,
                                param_timezone_offset)
+      user_input_time.utc
     end
 
     def token

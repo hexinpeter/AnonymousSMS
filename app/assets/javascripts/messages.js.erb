@@ -3,7 +3,7 @@ $(document).ready(function() {
 	setTimeZone();
 	setCurrentTime();
 
-	$('#template').change(function() {
+	$('#template-choice').change(function() {
 		var id = $(this).find("option:selected").val();
 
 	  if (id == "work") {
@@ -27,8 +27,8 @@ function setCurrentTime() {
 	$('#message_time_1i').val(d.getFullYear());
 	$('#message_time_2i').val(d.getMonth() + 1);
 	$('#message_time_3i').val(d.getDate());
-	$('#message_time_4i').val(d.getHours());
-	$('#message_time_5i').val(d.getMinutes());
+	$('#message_time_4i').val(formatNum(d.getHours()));
+	$('#message_time_5i').val(formatNum(d.getMinutes()));
 }
 
 function template() {
@@ -43,6 +43,24 @@ function template() {
 	});
 }
 
+// format a positive number to a more than 2 char string
+function formatNum(num) {
+	if (num.toString().length == 1) {
+		return '0' + num.toString();
+	};
+	return num.toString();
+}
+
 function fillContent(c) {
 	$('#content-field').val(c);
 }
+
+
+
+
+
+
+
+
+
+
