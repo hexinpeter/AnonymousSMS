@@ -4,8 +4,6 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @token = 'Token.generate'
-    @t2 = Token.get_token
     @messages = Message.all
   end
 
