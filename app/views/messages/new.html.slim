@@ -1,0 +1,24 @@
+div.jumbotron
+	div.container
+		div.row
+			div.col-md-4.col-md-offset-1
+				h3 Afraid of stucking at a boring date? Wanna get out of there?
+				= image_tag 'date.jpg', id:'meeting-image'
+				h3 SCHEDULE an Emergency SMS!
+			div.col-md-5.col-md-offset-1
+				div.form-inline
+					label#template-label Template:
+					select.form-control#template
+					  option value="work" Work Emergency
+					  option value="cousin_injured" Injured Cousin
+					  option value="roommate_locked_outside" Roommate Locked Outside
+
+				= render 'form'
+
+
+
+<h1>New Message</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', messages_path %>

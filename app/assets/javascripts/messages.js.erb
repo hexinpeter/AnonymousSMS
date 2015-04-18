@@ -2,6 +2,19 @@ $(document).ready(function() {
 	// $('#datetime').datetimepicker();
 	setTimeZone();
 	setCurrentTime();
+
+	$('#template').change(function() {
+		var id = $(this).find("option:selected").val();
+
+	  if (id == "work") {
+	  	fillContent("Hi [Your name], could you please come to the office immediately? There is an emergency issue that requires your attention.");
+	  } else if(id == "cousin_injured") {
+	  	fillContent("Hi, this is from Royal Melbourne Hospital. Your cousin Matt Jobs had a car accident. Can you come to the hospital immediately?");
+	  } else if(id == "roommate_locked_outside") {
+	  	fillContent("Hey, this is Matt. I forgot to bring my key, and am now locked outside of the house. Can you come home now?? (my phone out of bat, this is sent from my friend's phone)");
+	  };
+
+	});
 });
 
 function setTimeZone() {
@@ -16,4 +29,20 @@ function setCurrentTime() {
 	$('#message_time_3i').val(d.getDate());
 	$('#message_time_4i').val(d.getHours());
 	$('#message_time_5i').val(d.getMinutes());
+}
+
+function template() {
+	$('#template').change(function() {
+		var id = $(this).find("option:selected").val;
+
+	  switch (id){
+	    case "dinner":
+	    	fillContent('asdf');
+	      break;
+	  }
+	});
+}
+
+function fillContent(c) {
+	$('#content-field').val(c);
 }

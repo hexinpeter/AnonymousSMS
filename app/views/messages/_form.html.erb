@@ -1,4 +1,4 @@
-<%= form_for(@message) do |f| %>
+<%= form_for(@message, html: {class: 'form-group'}) do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -12,22 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :to %><br>
-    <%= f.text_field :to, placeholder: "0412345678" %>
+    <h4><%= f.label :to %></h4>
+    <%= f.text_field :to, placeholder: "0412345678", class: "form-control", id: "to-field" %>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <h4><%= f.label :content %></h4>
+    <%= f.text_area :content, maxlength: 160, class: "form-control", id: "content-field" %>
   </div>
   <div class="field">
-    <%= f.label :time %><br>
-    <%= f.datetime_select :time %>
+    <h4><%= f.label :time %></h4>
+    <%= f.datetime_select :time, class: "form-control" %>
     <%= hidden_field_tag 'timezone_offset' %>
-    <!-- <br/>
-    <input id="datetime" type="text">
-    <input id="time_zone" style="display:none"> -->
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Send', data: { confirm: "Are you sure?" }, class: "btn btn-primary", id: "send-button"%>
   </div>
 <% end %>
