@@ -28,8 +28,14 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     token = Token.get_token
+    user_input_time = Time.new(message_params['time(1i)'].to_i,
+                               message_params['time(2i)'].to_i,
+                               message_params['time(3i)'].to_i,
+                               message_params['time(4i)'].to_i,
+                               message_params['time(5i)'].to_i)
+    sendin = user_input_time - Time.now > 0 ? (user_input_time - Time.now) : 0.minute
 
-    SendWorker.perform_async(token, message_params[:to], message_params[:content])
+    SendWorker.perform_in(sendin, token, message_params[:to], message_params[:content])
 
     respond_to do |format|
       if @message.save

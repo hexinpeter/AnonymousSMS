@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :time %><br>
-    <%= f.datetime_select :time %>
+    <%= f.datetime_select :time, default: Time.now %>
   </div>
   <div class="actions">
     <%= f.submit %>
