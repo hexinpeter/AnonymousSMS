@@ -44,7 +44,7 @@ gem 'sinatra', require: false
 gem 'slim'
 
 # REST client
-gem 'rest-client'
+gem 'rest-client', '1.8.0'
 
 # secret key management
 gem 'figaro'

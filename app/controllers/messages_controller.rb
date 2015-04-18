@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
         # send the message by adding it to Sidekiq queue
         SendWorker.perform_in(schedule_time, token, @message.id)
         # SendWorker.new.perform(token, @message.id)
-
+        format.js {@message}
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else

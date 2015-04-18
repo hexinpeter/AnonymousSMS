@@ -13,7 +13,6 @@ div.jumbotron
 					  option value="work" Work Emergency
 					  option value="cousin_injured" Injured Cousin
 					  option value="roommate_locked_outside" Roommate Locked Outside
-
 				= render 'form'
 
 div.container#use-cases
@@ -37,3 +36,23 @@ div.container#use-cases
 	    h3.panel-title Prank Your Friends!
 	  div.panel-body
 	    P Send him/her confession or threatening SMS, and see how he/she react! XD
+
+
+<div class="modal fade" id="send-result" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Message Scheduled Successfully</h4>
+      </div>
+      <div class="modal-body">
+        <p>ID: <span id="id"></span> (used for checking reply messages)</p>
+        <p>To: <span id="to"></span></p>
+        <p>Content: <span id="content"></span></p>
+        <p>Sending Time: <span id="time"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
