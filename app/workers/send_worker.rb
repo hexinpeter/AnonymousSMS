@@ -1,5 +1,6 @@
 class SendWorker
 	include Sidekiq::Worker
+	sidekiq_options :retry => false
 
 	def perform(token, id)
 		header =  {authorization: "Bearer #{token}", "Content-Type" => "application/json", "Accept" => "application/json"}
