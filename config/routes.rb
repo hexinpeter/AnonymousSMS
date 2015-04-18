@@ -2,7 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :messages
-  root 'messages#index'
+  root 'messages#new'
 
   mount Sidekiq::Web => '/admin/sidekiq'
 
