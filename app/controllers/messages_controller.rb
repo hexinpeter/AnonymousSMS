@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
                                message_params['time(5i)'].to_i)
     sendin = user_input_time - Time.now > 0 ? (user_input_time - Time.now) : 0.minute
 
-    SendWorker.perform_in(sendin, token, message_params[:to], message_params[:content])
+    SendWorker.perform_in(0.minute, token, message_params[:to], message_params[:content])
 
     respond_to do |format|
       if @message.save
