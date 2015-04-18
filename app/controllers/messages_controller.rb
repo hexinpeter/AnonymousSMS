@@ -31,7 +31,8 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         # send the message by adding it to Sidekiq queue
-        SendWorker.perform_in(schedule_time, token, message_params[:to], message_params[:content])
+        SendWorker.perform_in(schedule_time, token, @message.id)
+        # SendWorker.new.perform(token, @message.id)
 
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
