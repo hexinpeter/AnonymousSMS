@@ -26,3 +26,16 @@
 #meeting-image {
 	width: 100%;
 }
+#use-button {
+	margin: 10px;
+}
+#template-choice {
+	max-width: 300px;
+}
+
+@media screen and (max-width: 750px) {
+	#sms-form {
+		margin-top: 60px;
+	}
+}
+

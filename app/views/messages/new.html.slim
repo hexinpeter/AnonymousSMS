@@ -1,24 +1,38 @@
 div.jumbotron
 	div.container
 		div.row
-			div.col-md-4.col-md-offset-1
+			div.col-sm-4.col-sm-offset-1
 				h3 Afraid of stucking at a boring date? Wanna get out of there?
 				= image_tag 'date.jpg', id:'meeting-image'
 				h3 SCHEDULE an Emergency SMS!
-			div.col-md-5.col-md-offset-1
+				a.btn.btn-primary#use-button href="#use-cases" Find More Use Cases
+			div.col-sm-5.col-sm-offset-1#sms-form
 				div.form-inline
 					label#template-label Template:
-					select.form-control#template
+					select.form-control#template-choice
 					  option value="work" Work Emergency
 					  option value="cousin_injured" Injured Cousin
 					  option value="roommate_locked_outside" Roommate Locked Outside
 
 				= render 'form'
 
+div.container#use-cases
+	div.panel.panel-primary
+	  div.panel-heading
+	    h3.panel-title Perfect Break-up Plan
+	  div.panel-body
+	    P Send an anonymous message to your girlfriend/boyfriend similar to the one below
+	    p "Hey darling, I'm already here at Melbourne Hotel Room #301. Waiting for you here, Muuah~ "
+	    p And act carelessly flipping through his phone to find out about the message ....
 
+	div.panel.panel-primary
+	  div.panel-heading
+	    h3.panel-title Anonymous Confession
+	  div.panel-body
+	    P Confess to your dream man/lady without him/her knowing who the secret admirer is.
 
-<h1>New Message</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', messages_path %>
+	div.panel.panel-primary
+	  div.panel-heading
+	    h3.panel-title Prank Your Friends!
+	  div.panel-body
+	    P Send him/her confession or threatening SMS, and see how he/she react! XD
