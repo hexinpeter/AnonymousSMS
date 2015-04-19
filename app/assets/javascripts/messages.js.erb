@@ -14,6 +14,14 @@ $(document).ready(function() {
 	  	fillContent("Matt here. I forgot to bring my key, and am now locked outside of the house. Can you come home now?? (this is sent from my friend's phone)");
 	  };
 	});
+
+	$('form#reply-search').submit(function() {
+		$('#reply-result').modal('show');
+	});
+
+	$('#reply-result-close-btn').click(function() {
+		$('#reply-result .modal-body').html("<p>Retrieving reply message ... (this process may take up 10 to 20 seconds)</p>");
+	});
 });
 
 function setTimeZone() {

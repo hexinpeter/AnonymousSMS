@@ -1,7 +1,3 @@
-<% if @message %>
-	$('#reply-result .modal-title #reply-id').html("<%= @message.id %>");
-<% end %>
-
 <% if @reply  %>
 	$('#reply-result .modal-body').html("<p>Replied Time: <%= @reply.acknowledgedTimestamp %></p><p>Content: <%= @reply.content %></p>");
 <% else  %>
@@ -9,4 +5,3 @@
 <% end  %>
 
 $('#reply-result').modal('show');
-
