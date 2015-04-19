@@ -24,6 +24,23 @@ $(document).ready(function() {
 	$('#reply-result-close-btn').click(function() {
 		$('#reply-result .modal-body').html("<p>Retrieving reply message ... (this process may take up 10 to 20 seconds)</p>");
 	});
+
+
+
+	// form validation
+  jQuery.validator.addMethod(
+    "regex",
+    function(value, element, regexp) {
+        var re = new RegExp(regexp);
+        return this.optional(element) || re.test(value);
+    },
+    "Please check your input."
+  );
+	$('#message-form').validate();
+	$('#to-field').rules('add', {
+    regex: /^((\+61)|0)\d{9}$/,
+    messages: {regex: "Please provide a valid Australian number. No spaces."}
+  });
 });
 
 function setTimeZone() {

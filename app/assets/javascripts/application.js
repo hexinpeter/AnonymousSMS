@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require jquery.datetimepicker
+//= require jquery.validate.min
 //= require_tree .
