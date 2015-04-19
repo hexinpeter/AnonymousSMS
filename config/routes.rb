@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'messages/reply', to: 'messages#reply'
+
   resources :messages
 
   root 'messages#new'

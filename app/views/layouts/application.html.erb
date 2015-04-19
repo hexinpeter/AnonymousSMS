@@ -20,12 +20,11 @@
       </button>
       <a class="navbar-brand" id="brand" href="/">SMS Saviour</a>
 
-      <form class="navbar-form navbar-left" id="reply-search" role="search">
+      <form class="navbar-form navbar-left" id="reply-search" role="search" action="/messages/reply" data-remote="true">
         <div class="form-group">
-          <input type="text" class="form-control" id="reply-search-input" placeholder="Message ID">
+          <input type="text" class="form-control" id="reply-search-input" name="message_id" placeholder="Message ID">
           <button type="submit" class="btn btn-default" id="reply-search-btn">Check Reply</button>
         </div>
-
       </form>
     </div>
     </div>

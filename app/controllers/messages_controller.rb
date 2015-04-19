@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  include ReplyHelper
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # # GET /messages
@@ -64,6 +65,14 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /messages/resply/
+  def reply
+    @message = Message.find_by_id(params['message_id'])
+    if @message
+      @reply = get_reply(@message.mid)
     end
   end
 

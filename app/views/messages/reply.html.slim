@@ -1,0 +1,10 @@
+- if !@reply
+	p Not yet replied
+
+- else
+	p
+		= @reply.from
+	p
+		= @reply.acknowledgedTimestamp
+	p
+		= @reply.content
