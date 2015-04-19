@@ -40,9 +40,28 @@
 	margin-bottom: 40px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 767px) {
 	#sms-form {
 		margin-top: 60px;
+	}
+	#brand {
+		float: none;
+	}
+	#reply-search {
+		padding:30px;
+		#reply-search-input {
+			max-width: 200px;
+			display: inline;
+		}
+		#reply-search-btn {
+			vertical-align: top;
+		}
+	}
+}
+
+@media screen and (min-width: 767px) {
+	#reply-search {
+		margin-left: 20px;
 	}
 }
 
