@@ -1,5 +1,9 @@
 <% if @reply  %>
-	$('#reply-result .modal-body').html("<p>Replied Time: <%= @reply.acknowledgedTimestamp %></p><p>Content: <%= @reply.content %></p>");
+	<% replies = "" %>
+	<% @reply.each do |r| %>
+		<% replies +=  "<p>Replied Time: #{r.acknowledgedTimestamp}</p><p>Content: #{r.content}</p>"%>
+	<% end %>
+	$('#reply-result .modal-body').html("<%= replies.html_safe %>");
 <% else  %>
 	$('#reply-result .modal-body').html("<p>Not Replied Yet</p>");
 <% end  %>
