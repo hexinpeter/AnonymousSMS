@@ -1,5 +1,9 @@
 # README
 
+This is a Rails app allowing people to schedule an anoymous SMS to be sent to any Australian phone number, and to check the replies too. This makes the use of [Telstra SMS API](https://dev.telstra.com/sms-quick-start).
+
+Checkout the website at [meetingsaviour.herokuapp.com](https://meetingsaviour.herokuapp.com)
+
 ## Deployment on Heroku
 * database migration: `heroku run db:migrate`
 * set environment vars: `figaro heroku:set -e production`
