@@ -16,6 +16,9 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+    respond_to do |format|
+      format.html { redirect_to "https://smsanonymous.herokuapp.com" }
+    end
   end
 
   # # GET /messages/1/edit
