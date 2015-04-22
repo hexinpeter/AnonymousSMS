@@ -1,6 +1,9 @@
 .error {
 	color: red;
 }
+#above-image-text {
+	margin-top: 0px;
+}
 
 #brand {
 	font-size: 30px;
@@ -42,6 +45,12 @@
 	border-color: rgb(191, 192, 192);
 	padding-bottom: 10px;
 	margin-bottom: 40px;
+}
+#sms-form {
+	margin-top: 30px;
+}
+#message-id-display {
+	margin-top: 30px;
 }
 
 @media screen and (max-width: 767px) {

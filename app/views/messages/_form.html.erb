@@ -19,11 +19,11 @@
     <h4><%= f.label :content %></h4>
     <%= f.text_area :content, maxlength: 160, class: "form-control", id: "content-field", required: true %>
   </div>
-  <div class="field">
+<!--   <div class="field">
     <h4><%= f.label :time %></h4>
     <%= f.datetime_select :time, class: "form-control" %>
     <%= hidden_field_tag 'timezone_offset' %>
-  </div>
+  </div> -->
   <div class="actions">
     <%= f.submit 'Send', data: { confirm: "Are you sure?" }, class: "btn btn-primary", id: "send-button"%>
   </div>

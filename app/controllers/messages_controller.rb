@@ -32,8 +32,8 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         # send the message by adding it to Sidekiq queue
-        SendWorker.perform_in(schedule_time, @message.id)
-        # SendWorker.new.perform(token, @message.id)
+        # SendWorker.perform_in(schedule_time, @message.id)
+        SendWorker.new.perform(@message.id)
         format.js {@message}
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
@@ -93,6 +93,9 @@ class MessagesController < ApplicationController
     end
 
     def param_utc_time
+      if !message_params['time(1i)']
+        return nil
+      end
       user_input_time = Time.new(message_params['time(1i)'].to_i,
                                message_params['time(2i)'].to_i,
                                message_params['time(3i)'].to_i,

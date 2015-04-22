@@ -2,18 +2,19 @@ div.jumbotron
 	div.container
 		div.row
 			div.col-sm-4.col-sm-offset-1
-				h3 Afraid of getting stuck at a boring date? Wanna get out of there?
-				= image_tag 'date.jpg', id:'meeting-image'
-				h3 SCHEDULE an Emergency SMS!
+				h3#above-image-text Anonymous SMS to any Australian number
+				= image_tag 'anonymous.jpg', id:'meeting-image'
 			div.col-sm-5.col-sm-offset-1#sms-form
-				div.form-inline
-					label#template-label Template:
-					select.form-control#template-choice
-					  option value="none" -- none --
-					  option value="work" Work Emergency
-					  option value="cousin_injured" Injured Cousin
-					  option value="roommate_locked_outside" Roommate Locked Outside
+				/ div.form-inline
+				/ 	label#template-label Template:
+				/ 	select.form-control#template-choice
+				/ 	  option value="none" -- none --
+				/ 	  option value="work" Work Emergency
+				/ 	  option value="cousin_injured" Injured Cousin
+				/ 	  option value="roommate_locked_outside" Roommate Locked Outside
 				= render 'form'
+				p#message-id-display
+					| Last Message ID: <span id="last-message-id">N/A</span>
 
 div.container#use-cases
 	h2 More Use Cases:
@@ -50,7 +51,7 @@ div.container#use-cases
         <p>ID: <span id="id"></span> (used for checking reply messages)</p>
         <p>To: <span id="to"></span></p>
         <p>Content: <span id="content"></span></p>
-        <p>Sending Time: <span id="time"></span></p>
+        / <p>Sending Time: <span id="time"></span></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
