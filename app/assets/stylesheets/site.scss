@@ -7,6 +7,9 @@
 
 #brand {
 	font-size: 30px;
+	&:hover {
+		color: white;
+	}
 }
 #custom-navbar {
 	padding-top: 15px;
