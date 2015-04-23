@@ -21,8 +21,16 @@ $(document).ready(function() {
 		$('#reply-result').modal('show');
 	});
 
+	$('#sms-form form').submit(function() {
+		$('#send-result').modal('show');
+	});
+
 	$('#reply-result-close-btn').click(function() {
 		$('#reply-result .modal-body').html("<p>Retrieving reply message ... (this process may take up 10 to 20 seconds)</p>");
+	});
+
+	$('#send-result-close-btn').click(function() {
+		$('#send-result .modal-body').html("<p>Sending ...</p>");
 	});
 
 
