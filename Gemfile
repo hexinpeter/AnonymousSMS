@@ -49,6 +49,9 @@ gem 'rest-client', '1.8.0'
 # secret key management
 gem 'figaro'
 
+# sitemap generation
+gem 'sitemap_generator'
+
 # Heroku
 group :production do
 	gem 'rails_12factor'
