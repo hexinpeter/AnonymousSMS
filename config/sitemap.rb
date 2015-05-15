@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.smsanonymous.herokuapp.com"
+SitemapGenerator::Sitemap.default_host = "http://smsanonymous.herokuapp.com"
 
 # Disable creating an index file for linking multiple sitemaps
 SitemapGenerator::Sitemap.create_index = false
